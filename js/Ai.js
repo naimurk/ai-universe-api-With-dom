@@ -6,6 +6,7 @@ const loadData = () => {
 }
 const displayData = (data) => {
     const cardContainer = document.getElementById('card-container')
+    cardContainer.innerHTML = "";
     data.forEach(element => {
         console.log(element)
         const {id,image,name,features,published_in} = element
@@ -25,7 +26,7 @@ const displayData = (data) => {
 
                     <li>1. ${features[0]}</li>
                     <li>2. ${features[1]}</li>
-                    <li>3.${features[2]}</li>
+                    <li>3. ${features[2]}</li>
 
                 </ol>
             </div>
@@ -44,7 +45,7 @@ const displayData = (data) => {
 
                 </div>
                 <div>
-                    <button class="btn bg-white px-5 py-2 rounded-full "><i
+                    <button class="btn bg-red-100 px-5 py-2 rounded-full "><i
                             class="fa-solid fa-arrow-right"></i></button>
                 </div>
 
@@ -55,5 +56,11 @@ const displayData = (data) => {
         cardContainer.appendChild(div)
         
     });
+};
+
+const showAll = ()=> {
+    fetch ('https://openapi.programming-hero.com/api/ai/tools')
+    .then(res => res.json())
+    .then(data => displayData(data.data.tools))
 }
 loadData()
