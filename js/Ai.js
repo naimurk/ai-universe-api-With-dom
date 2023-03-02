@@ -46,9 +46,11 @@ const displayData = (data) => {
 
                 </div>
                 <div>
-                    <button class="btn bg-red-100 px-5 py-2 rounded-full "><i
+                    <button onclick = "modalData()" data-modal-target="staticModal" data-modal-toggle="staticModal" class="btn bg-red-100 px-5 py-2 rounded-full "><i
                             class="fa-solid fa-arrow-right"></i></button>
                 </div>
+
+
 
             </div>
         </div>
@@ -66,4 +68,8 @@ const showAll = ()=> {
     .then(res => res.json())
     .then(data => displayData(data.data.tools))
     
+};
+
+const modalData = (id)=> {
+    document.getElementById('staticModal').classList.toggle('hidden')
 }
