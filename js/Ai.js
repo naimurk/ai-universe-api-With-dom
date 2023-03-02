@@ -23,9 +23,9 @@ const displayData = (data) => {
                 <h3 class="text-2xl font-bold my-3">Features</h3>
                 <ol class="text-gray-700 /">
 
-                    <li>sayem vai</li>
-                    <li>sayem vai</li>
-                    <li>sayem vai</li>
+                    <li>1. ${features[0]}</li>
+                    <li>2. ${features[1]}</li>
+                    <li>3.${features[2]}</li>
 
                 </ol>
             </div>
@@ -35,12 +35,11 @@ const displayData = (data) => {
 
                 <div>
                     <a href="#">
-                        <h5 class="mb-2 text-3xl font-bold tracking-tight text-gray-700 /">ChatGpt
-                        </h5>
+                        <h5 class="mb-2 text-3xl font-bold tracking-tight text-gray-700 /">${name}</h5>
                     </a>
                     <div class="">
                         <p class="text-gray-700 /"><i
-                                class="fa-solid fa-calendar-days mr-2"></i>11/01/2022</p>
+                                class="fa-solid fa-calendar-days mr-2"></i>${published_in}</p>
                     </div>
 
                 </div>
