@@ -52,76 +52,46 @@
         </section>
         <!-- show all btn ends -->
         <!-- modal starts -->
-        <section>
-            <div id="" class="">
-
-                <div id="staticModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
-                    class=" flex justify-center items-center  fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
-                    <div class="relative w-full lg:w-1/2 h-full  md:h-auto">
-                        <!-- Modal content -->
-                        <div class="relative bg-white rounded-lg shadow-xl ">
-                            <!-- Modal header -->
-                            <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
-                                <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                                    Static modal
-                                </h3>
-                                <button onclick="modalData()" type="button"
-                                    class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                                    data-modal-hide="staticModal">
-                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path fill-rule="evenodd"
-                                            d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </button>
-                            </div>
-                            <!-- Modal body -->
-                            <div class=" flex justify-center items-center gap-4 flex-col lg:flex-row p-6 space-y-6">
-
-                                <div class="bg-red-50 border border-red-500 rounded-md w-full lg:w-1/2 px-5 py-5 lg:px-12 lg:py-12 ">
-                                    <h1 class="text-2xl  font-bold">ChatGPT is an AI-powered chatbot platform that uses OpenAI's GPT technology to simulate human conversation.</h1>
-                                    <div class="flex gap-4 my-5 items-center">
-                                        <div class="py-12 px-3 rounded shadow-xl bg-white">sayem vai 1</div>
-                                        <div class="py-12 px-3 rounded shadow-xl bg-white">sayem vai 2</div>
-                                        <div class="py-12 px-3 rounded shadow-xl bg-white">sayem vai 3</div>
-                                    </div>
-                                    <div class="flex gap-4 justify-between  items-center">
-                                        <div>
-                                            <h1 class="text-2xl  font-bold" >Features</h1>
-                                            <ul class=" py-3">
-                                                <li>sayem</li>
-                                                <li>sayem</li>
-                                                <li>sayem</li>
-                                            </ul>
-                                        </div>
-                                        <div class="ml-5">
-                                            <h1 class="text-2xl  font-bold">Integration</h1>
-                                            <ul class=" py-3">
-                                                <li>sayem</li>
-                                                <li>sayem</li>
-                                                <li>sayem</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="w-full lg:w-1/2 border flex flex-col justify-center text-center rounded-md px-5 py-5 lg:px-12 lg:py-12 ">
-                                    <img class="h-80" src="https://picsum.photos/id/237/200/300" alt="">
-                                    <h1 class="text-2xl  font-bold py-5" >Hi, how are you doing today?</h1>
-                                    <p>I'm doing well, thank you for asking. How can I assist you today?</p>
-                                </div>
-
-                            </div>
-                            <!-- Modal footer -->
-                            <div
-                                class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
-
-                               
-                            </div>
-                        </div>
+        <section id="">
+            
+            <div id="staticModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
+            class=" flex justify-center items-center  fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-modal md:h-full">
+            <div class="relative w-full lg:w-1/2 h-full  md:h-auto">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow-xl ">
+                    <!-- Modal header -->
+                    <div class="flex items-start justify-between p-4 border-b rounded-t dark:border-gray-600">
+                        <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
+                            Static modal
+                        </h3>
+                        <button onclick="modalData()" type="button"
+                            class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                            data-modal-hide="staticModal">
+                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <!-- Modal body -->
+                    <div id="modal-container" class=" flex justify-center items-center gap-4 flex-col lg:flex-row p-6 space-y-6">
+        
+                      
+        
+                    </div>
+                    <!-- Modal footer -->
+                    <div
+                        class="flex items-center p-6 space-x-2 border-t border-gray-200 rounded-b dark:border-gray-600">
+        
+                       
                     </div>
                 </div>
             </div>
+        </div>
+              
+            
         </section>
         <!-- modal ends -->
 

@@ -9,7 +9,7 @@ const displayData = (data) => {
     const cardContainer = document.getElementById('card-container')
     cardContainer.innerHTML = "";
     data.forEach(element => {
-        console.log(element)
+        // console.log(element)
         const {id,image,name,features,published_in} = element
         const div = document.createElement('div')
         div.innerHTML = `
@@ -46,7 +46,7 @@ const displayData = (data) => {
 
                 </div>
                 <div>
-                    <button onclick = "modalData()" data-modal-target="staticModal" data-modal-toggle="staticModal" class="btn bg-red-100 px-5 py-2 rounded-full "><i
+                    <button onclick = "modalData('${id}')" data-modal-target="staticModal" data-modal-toggle="staticModal" class="btn bg-red-100 px-5 py-2 rounded-full "><i
                             class="fa-solid fa-arrow-right"></i></button>
                 </div>
 
@@ -72,4 +72,48 @@ const showAll = ()=> {
 
 const modalData = (id)=> {
     document.getElementById('staticModal').classList.toggle('hidden')
+    const URL = `https://openapi.programming-hero.com/api/ai/tool/${id}`
+    fetch(URL)
+    .then(res=> res.json())
+    .then(data=> displayModal(data.data))
+}
+
+const displayModal = (element) => {
+    console.log(element)
+    const {description,pricing,features,input_output_examples,integrations,image_link} = element
+   document.getElementById('modal-container').innerHTML = `
+   <div class="bg-red-50 border border-red-500 rounded-md w-full lg:w-1/2 px-5 py-5 lg:px-12 lg:py-12 ">
+   <h1 class="text-2xl  font-bold">ChatGPT is an AI-powered chatbot platform that uses OpenAI's GPT technology to simulate human conversation.</h1>
+   <div class="flex gap-4 my-5 items-center">
+       <div class="py-12 px-3 rounded shadow-xl bg-white">sayem vai 1</div>
+       <div class="py-12 px-3 rounded shadow-xl bg-white">sayem vai 2</div>
+       <div class="py-12 px-3 rounded shadow-xl bg-white">sayem vai 3</div>
+   </div>
+   <div class="flex gap-4 justify-between  items-center">
+       <div>
+           <h1 class="text-2xl  font-bold" >Features</h1>
+           <ul class=" py-3">
+               <li>sayem</li>
+               <li>sayem</li>
+               <li>sayem</li>
+           </ul>
+       </div>
+       <div class="ml-5">
+           <h1 class="text-2xl  font-bold">Integration</h1>
+           <ul class=" py-3">
+               <li>sayem</li>
+               <li>sayem</li>
+               <li>sayem</li>
+           </ul>
+       </div>
+   </div>
+</div>
+<div class="w-full lg:w-1/2 border flex flex-col justify-center text-center rounded-md px-5 py-5 lg:px-12 lg:py-12 ">
+   <img class="h-80" src="https://picsum.photos/id/237/200/300" alt="">
+   <h1 class="text-2xl  font-bold py-5" >Hi, how are you doing today?</h1>
+   <p>I'm doing well, thank you for asking. How can I assist you today?</p>
+</div>
+   `
+   
+    
 }
