@@ -1,5 +1,6 @@
 
 const loadData = () => {
+    document.getElementById('spinner').classList.remove('hidden')
     fetch ('https://openapi.programming-hero.com/api/ai/tools')
     .then(res => res.json())
     .then(data => displayData(data.data.tools.slice(0,6)))
@@ -54,6 +55,7 @@ const displayData = (data) => {
     </div>
         `;
         cardContainer.appendChild(div)
+        document.getElementById('spinner').classList.add('hidden')
         
     });
 };
@@ -63,4 +65,3 @@ const showAll = ()=> {
     .then(res => res.json())
     .then(data => displayData(data.data.tools))
 }
-loadData()
