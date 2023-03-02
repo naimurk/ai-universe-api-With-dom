@@ -61,7 +61,9 @@ const displayData = (data) => {
 };
 
 const showAll = ()=> {
+    document.getElementById('showAll-btn').classList.add('hidden')
     fetch ('https://openapi.programming-hero.com/api/ai/tools')
     .then(res => res.json())
     .then(data => displayData(data.data.tools))
+    
 }
