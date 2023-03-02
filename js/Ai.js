@@ -83,11 +83,21 @@ const displayModal = (element) => {
     const {description,pricing,features,input_output_examples,integrations,image_link} = element
    document.getElementById('modal-container').innerHTML = `
    <div class="bg-red-50 border border-red-500 rounded-md w-full lg:w-1/2 px-5 py-5 lg:px-12 lg:py-12 ">
-   <h1 class="text-2xl  font-bold">ChatGPT is an AI-powered chatbot platform that uses OpenAI's GPT technology to simulate human conversation.</h1>
-   <div class="flex gap-4 my-5 items-center">
-       <div class="py-12 px-3 rounded shadow-xl bg-white">sayem vai 1</div>
-       <div class="py-12 px-3 rounded shadow-xl bg-white">sayem vai 2</div>
-       <div class="py-12 px-3 rounded shadow-xl bg-white">sayem vai 3</div>
+   <h1 class="text-2xl  font-bold">${description}</h1>
+   <div class="flex flex-col lg:flex-row gap-4 my-5 items-center">
+       <div class="py-12 px-3 rounded shadow-xl bg-white">
+       <p>${pricing[0].plan}</p>
+       <p>${pricing[0].price}</p>
+       </div>
+       <div class="py-12 px-3 rounded shadow-xl bg-white">
+       <p>${pricing[1].plan}</p>
+       <p>${pricing[1].price}</p>
+       </div>
+       <div class="py-12 px-3 rounded shadow-xl bg-white">
+       <p>${pricing[2].plan}</p>
+       <p>${pricing[2].price}</p>
+       </div>
+      
    </div>
    <div class="flex gap-4 justify-between  items-center">
        <div>
@@ -113,7 +123,7 @@ const displayModal = (element) => {
    <h1 class="text-2xl  font-bold py-5" >Hi, how are you doing today?</h1>
    <p>I'm doing well, thank you for asking. How can I assist you today?</p>
 </div>
-   `
+   `;
    
     
 }
