@@ -99,7 +99,7 @@ const displayModal = (element) => {
        </div>
       
    </div>
-   <div class="flex gap-4 justify-between  items-center">
+   <div class="flex items-center">
        <div>
            <h1 class="text-2xl  font-bold" >Features</h1>
            <ul class=" py-3">
@@ -111,17 +111,17 @@ const displayModal = (element) => {
        <div class="ml-5">
            <h1 class="text-2xl  font-bold">Integration</h1>
            <ul class=" py-3">
-               <li>sayem</li>
-               <li>sayem</li>
-               <li>sayem</li>
+               <li>${integrations[0]}</li>
+               <li>${integrations[1]}</li>
+               <li>${integrations[2]}</li>
            </ul>
        </div>
    </div>
 </div>
 <div class="w-full lg:w-1/2 border flex flex-col justify-center text-center rounded-md px-5 py-5 lg:px-12 lg:py-12 ">
-   <img class="h-80" src="https://picsum.photos/id/237/200/300" alt="">
-   <h1 class="text-2xl  font-bold py-5" >Hi, how are you doing today?</h1>
-   <p>I'm doing well, thank you for asking. How can I assist you today?</p>
+   <img class="h-80" src="${image_link[0]}" alt="">
+   <h1 class="text-2xl  font-bold py-5" >${input_output_examples[0].input}</h1>
+   <p>${input_output_examples[0].output}</p>
 </div>
    `;
    
