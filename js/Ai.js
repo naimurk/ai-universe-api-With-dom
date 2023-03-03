@@ -77,12 +77,12 @@ const modalData = (id)=> {
     .then(res=> res.json())
     .then(data=>{ 
         // console.log(data)
-        displayModal(data.data)})
+        displayModal(data?.data)})
 }
 
 const displayModal = (element) => {
     console.log(element)
-    const {description,pricing,features,input_output_examples,integrations,image_link} = element
+    const {description,pricing,features,input_output_examples,integrations,image_link,accuracy} = element
    document.getElementById('modal-container').innerHTML = `
    <div class="bg-red-50 border border-red-500 rounded-md w-full lg:w-1/2 px-5 py-5 lg:px-12 lg:py-12 ">
    <h1 class="text-2xl  font-bold">${description}</h1>
@@ -120,12 +120,23 @@ const displayModal = (element) => {
        </div>
    </div>
 </div>
-<div class="w-full lg:w-1/2 border flex flex-col justify-center text-center rounded-md px-5 py-5 lg:px-12 lg:py-12 ">
+<div class=" relative w-full lg:w-1/2 border flex flex-col justify-center text-center rounded-md px-5 py-5 lg:px-12 lg:py-12 ">
    <img class="h-80" src="${image_link[0]}" alt="">
+   <div id = "accuracy-btn"   class="absolute  right-12 top-12">
+                <button class="btn bg-red-500 rounded-full px-5 py-3">${accuracy.score == accuracy.score ? accuracy.score*100 : accuracy()} % accuracy</button>
+    </div>
    <h1 class="text-2xl  font-bold py-5" >${input_output_examples[0].input ? input_output_examples[0].input : 'question not found'}</h1>
    <p>${input_output_examples[0].output ? input_output_examples[0].output : 'No! Not Yet! Take a break!!!'}</p>
 </div>
    `;
    
     
-}
+};
+
+const accuracy = () => {
+     document.getElementById('accuracy-btn').classList.add('hidden')
+    
+   }
+
+
+
