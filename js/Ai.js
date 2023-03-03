@@ -1,4 +1,4 @@
-
+let num = 0;
 const loadData = () => {
     document.getElementById('spinner').classList.remove('hidden')
     fetch ('https://openapi.programming-hero.com/api/ai/tools')
@@ -15,6 +15,7 @@ const displayData = (data) => {
     data.forEach(element => {
         // console.log(element)
         const {id,image,name,features,published_in} = element
+        console.log(features)
         const div = document.createElement('div')
         div.innerHTML = `
         <div class=" p-8 bg-white border border-gray-200  rounded-lg  shadow-xl ">
@@ -29,9 +30,7 @@ const displayData = (data) => {
                 <h3 class="text-2xl font-bold my-3">Features</h3>
                 <ol class="text-gray-700 /">
 
-                    <li>1. ${features[0]}</li>
-                    <li>2. ${features[1]}</li>
-                    <li>3. ${features[2]}</li>
+                  ${generateLi(features)}
 
                 </ol>
             </div>
@@ -92,16 +91,16 @@ const displayModal = (element) => {
    <h1 class="text-2xl  font-bold">${description}</h1>
    <div class="flex flex-col lg:flex-row gap-4 my-5 items-center">
        <div class="py-12 px-3 rounded shadow-xl bg-white">
-       <p>${pricing[0].plan}</p>
-       <p>${pricing[0].price  ? pricing[0].price : 'free of cost'}</p>
+          <p>${pricing[0].price  ? pricing[0].price : 'free of cost'}</p>
+          <p>${pricing[0].plan ? "Basic" : 'Basic'}</p>
        </div>
        <div class="py-12 px-3 rounded shadow-xl bg-white">
-       <p>${pricing[1].plan}</p>
-       <p>${pricing[1].price ? pricing[1].price : 'free of cost' }</p>
+         <p>${pricing[1].price ? pricing[1].price : 'free of cost' }</p>
+         <p>${pricing[1].plan ? 'pro' : 'pro' }</p>
        </div>
        <div class="py-12 px-3 rounded shadow-xl bg-white">
-       <p>${pricing[2].plan}</p>
-       <p>${pricing[2].price ? pricing[2].price : 'free of cost'}</p>
+         <p>${pricing[2].price ? 'contact us' : 'free of cost'}</p>
+         <p>${pricing[2].plan ? 'Enterprise' : 'Enterprise' }</p>
        </div>
       
    </div>
@@ -126,7 +125,7 @@ const displayModal = (element) => {
 </div>
 <div class=" relative w-full lg:w-1/2 border flex flex-col justify-center text-center rounded-md px-5 py-5 lg:px-12 lg:py-12 ">
    <img class="h-80" src="${image_link[0]}" alt="">
-   <div id = "accuracy-btn"   class="absolute  right-12 top-12">
+   <div id = "accuracy-btn"   class="absolute   right-12 top-12">
                 <button class="btn bg-red-500 rounded-full px-5 py-3">${accuracy.score == accuracy.score ? accuracy.score*100 : accuracy()} % accuracy</button>
     </div>
    <h1 class="text-2xl  font-bold py-5" >${input_output_examples[0].input ? input_output_examples[0].input : 'question not found'}</h1>
@@ -142,6 +141,7 @@ const accuracy = () => {
     
    }
 
+//    short by data functionality add 
 
    customSort = (a,b) => {
     const dateA = new Date (a.published_in)
@@ -161,6 +161,18 @@ const accuracy = () => {
         displayData(arrangeAble)
     })
     
+};
+
+//  generate features items
+const generateLi= li =>{
+    // let num = 0;
+    let ratingHTML= '';
+    for (let i = 0; i < li.length; i++){
+        ratingHTML +=`<li><i class="fa-solid mr-3 fa-xs fa-circle"></i>${li[i]}</li>`;
+      
+    }
+   
+    return ratingHTML
 };
 
 
