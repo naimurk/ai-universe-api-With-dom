@@ -3,7 +3,11 @@ const loadData = () => {
     document.getElementById('spinner').classList.remove('hidden')
     fetch ('https://openapi.programming-hero.com/api/ai/tools')
     .then(res => res.json())
-    .then(data => displayData(data.data.tools.slice(0,6)))
+    .then(data =>{
+        // console.log(data.data.tools)
+        
+        displayData(data.data.tools.slice(0,6))
+    })
 }
 const displayData = (data) => {
     const cardContainer = document.getElementById('card-container')
@@ -81,7 +85,7 @@ const modalData = (id)=> {
 }
 
 const displayModal = (element) => {
-    console.log(element)
+    // console.log(element)
     const {description,pricing,features,input_output_examples,integrations,image_link,accuracy} = element
    document.getElementById('modal-container').innerHTML = `
    <div class="bg-red-50 border border-red-500 rounded-md w-full lg:w-1/2 px-5 py-5 lg:px-12 lg:py-12 ">
@@ -137,6 +141,29 @@ const accuracy = () => {
      document.getElementById('accuracy-btn').classList.add('hidden')
     
    }
+
+
+   customSort = (a,b) => {
+    const dateA = new Date (a.published_in)
+    const dateB = new Date (b.published_in)
+    if (dateA>dateB) return 1 ;
+    else if (dateA<dateB) return -1;
+    return 0
+   }
+
+   const arrange = ()=> {
+    document.getElementById('showAll-btn').classList.add('hidden')
+    fetch ('https://openapi.programming-hero.com/api/ai/tools')
+    .then(res => res.json())
+    .then(data => {
+        const arrangeAble = data.data.tools.sort(customSort)
+        // console.log(arrangeAble)
+        displayData(arrangeAble)
+    })
+    
+};
+
+
 
 
 
