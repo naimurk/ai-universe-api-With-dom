@@ -99,13 +99,13 @@ const displayModal = (element) => {
        </div>
       
    </div>
-   <div class="flex items-center">
+   <div class="flex justify-between items-center">
        <div>
            <h1 class="text-2xl  font-bold" >Features</h1>
            <ul class=" py-3">
-               <li>sayem</li>
-               <li>sayem</li>
-               <li>sayem</li>
+               <li>${features['1'].feature_name}</li>
+               <li>${features['2'].feature_name}</li>
+               <li>${features['3'].feature_name}</li>
            </ul>
        </div>
        <div class="ml-5">
