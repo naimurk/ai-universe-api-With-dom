@@ -1,4 +1,4 @@
-let num = 0;
+// this function load main data
 const loadData = () => {
     document.getElementById('spinner').classList.remove('hidden')
     fetch ('https://openapi.programming-hero.com/api/ai/tools')
@@ -9,6 +9,7 @@ const loadData = () => {
         displayData(data.data.tools.slice(0,6))
     })
 }
+// this function display mian data
 const displayData = (data) => {
     const cardContainer = document.getElementById('card-container')
     cardContainer.innerHTML = "";
@@ -65,6 +66,7 @@ const displayData = (data) => {
     });
 };
 
+// this function will load all data by show all button 
 const showAll = ()=> {
     document.getElementById('showAll-btn').classList.add('hidden')
     fetch ('https://openapi.programming-hero.com/api/ai/tools')
@@ -73,6 +75,7 @@ const showAll = ()=> {
     
 };
 
+// this function can load modal data
 const modalData = (id)=> {
     document.getElementById('staticModal').classList.toggle('hidden')
     const URL = `https://openapi.programming-hero.com/api/ai/tool/${id}`
@@ -83,22 +86,23 @@ const modalData = (id)=> {
         displayModal(data?.data)})
 }
 
+// by this function we can display modal data
 const displayModal = (element) => {
     // console.log(element)
     const {description,pricing,features,input_output_examples,integrations,image_link,accuracy} = element
    document.getElementById('modal-container').innerHTML = `
    <div class="bg-red-50 border border-red-500 rounded-md w-full lg:w-1/2 px-5 py-5 lg:px-12 lg:py-12 ">
    <h1 class="text-2xl  font-bold">${description}</h1>
-   <div class="flex flex-col lg:flex-row gap-4 my-5 items-center">
-       <div class="py-12 px-3 rounded shadow-xl bg-white">
+   <div class="flex flex-wrap font-bold lg:flex-row gap-4 my-5 items-center">
+       <div class="py-12 text-green-500 lg:w-3/12 px-3 rounded shadow-xl bg-white">
           <p>${pricing[0].price  ? pricing[0].price : 'free of cost'}</p>
           <p>${pricing[0].plan ? "Basic" : 'Basic'}</p>
        </div>
-       <div class="py-12 px-3 rounded shadow-xl bg-white">
+       <div class="py-12 text-orange-500 lg:w-3/12 px-3 rounded shadow-xl bg-white">
          <p>${pricing[1].price ? pricing[1].price : 'free of cost' }</p>
          <p>${pricing[1].plan ? 'pro' : 'pro' }</p>
        </div>
-       <div class="py-12 px-3 rounded shadow-xl bg-white">
+       <div class="py-12 text-blue-500 lg:w-3/12 px-3 rounded shadow-xl bg-white">
          <p>${pricing[2].price ? 'contact us' : 'free of cost'}</p>
          <p>${pricing[2].plan ? 'Enterprise' : 'Enterprise' }</p>
        </div>
@@ -136,12 +140,13 @@ const displayModal = (element) => {
     
 };
 
+// this function will do display none to accuracy button
 const accuracy = () => {
      document.getElementById('accuracy-btn').classList.add('hidden')
     
    }
 
-//    short by data functionality add 
+// by this fucntion we can arrange all data by its date 
 
    customSort = (a,b) => {
     const dateA = new Date (a.published_in)
@@ -150,7 +155,7 @@ const accuracy = () => {
     else if (dateA<dateB) return -1;
     return 0
    }
-
+//   this function will display arrangeable data by its data
    const arrange = ()=> {
     document.getElementById('showAll-btn').classList.add('hidden')
     fetch ('https://openapi.programming-hero.com/api/ai/tools')
@@ -163,12 +168,12 @@ const accuracy = () => {
     
 };
 
-//  generate features items
+// this function  generate features items
 const generateLi= li =>{
     // let num = 0;
     let ratingHTML= '';
     for (let i = 0; i < li.length; i++){
-        ratingHTML +=`<li><i class="fa-solid mr-3 fa-xs fa-circle"></i>${li[i]}</li>`;
+        ratingHTML +=`<li><i class="fa-solid mr-3 fa-2xs fa-circle"></i>${li[i]}</li>`;
       
     }
    
