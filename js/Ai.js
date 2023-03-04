@@ -129,9 +129,9 @@ const displayModal = (element) => {
 </div>
 <div class=" relative w-full lg:w-1/2 border flex flex-col justify-center text-center rounded-md px-5 py-5 lg:px-12 lg:py-12 ">
    <img class="h-80" src="${image_link[0]}" alt="">
-   <div id = "accuracy-btn"   class="absolute   right-12 top-12">
-         <button class="btn bg-red-500 rounded-full px-5 py-3">${accuracy.score !== null ? converter(accuracy.score) : "null" } % accuracy</button>
-    </div>
+   
+         <span class = "absolute top-12 right-12">${accuracy.score == null ? '' : `<button class="btn bg-red-500 rounded-full px-5 py-3"> ${accuracy.score*100} % accuracy</button>`}</span>
+    
    <h1 class="text-2xl  font-bold py-5" >${input_output_examples !== null ? input_output_examples[0].input : 'question not found'}</h1>
    <p>${input_output_examples !== null ? input_output_examples[0].output : 'No! Not Yet! Take a break!!!'}</p>
 </div>
@@ -183,7 +183,6 @@ const generateLi= li =>{
    
     return ratingHTML
 };
-
 
 
 
