@@ -16,7 +16,7 @@ const displayData = (data) => {
     data.forEach(element => {
         // console.log(element)
         const {id,image,name,features,published_in} = element
-        console.log(features)
+        // console.log(features)
         const div = document.createElement('div')
         div.innerHTML = `
         <div class=" p-8 bg-white border border-gray-200  rounded-lg  shadow-xl ">
@@ -82,7 +82,7 @@ const modalData = (id)=> {
     fetch(URL)
     .then(res=> res.json())
     .then(data=>{ 
-        // console.log(data)
+        console.log(data)
         displayModal(data?.data)})
 }
 
@@ -95,16 +95,16 @@ const displayModal = (element) => {
    <h1 class="text-2xl  font-bold">${description}</h1>
    <div class="flex flex-wrap font-bold lg:flex-row gap-4 my-5 items-center">
        <div class="py-12 text-green-500 lg:w-3/12 px-3 rounded shadow-xl bg-white">
-          <p>${pricing[0].price  ? pricing[0].price : 'free of cost'}</p>
-          <p>${pricing[0].plan ? "Basic" : 'Basic'}</p>
+          <p>${pricing !== null ? pricing[0].price: 'free of cost'}</p>
+          <p>${pricing !== null ? "Basic" : 'Basic'}</p>
        </div>
        <div class="py-12 text-orange-500 lg:w-3/12 px-3 rounded shadow-xl bg-white">
-         <p>${pricing[1].price ? pricing[1].price : 'free of cost' }</p>
-         <p>${pricing[1].plan ? 'pro' : 'pro' }</p>
+         <p>${pricing !== null ? pricing[1].price : 'free of cost' }</p>
+         <p>${pricing !== null ? 'pro' : 'pro' }</p>
        </div>
        <div class="py-12 text-blue-500 lg:w-3/12 px-3 rounded shadow-xl bg-white">
-         <p>${pricing[2].price ? 'contact us' : 'free of cost'}</p>
-         <p>${pricing[2].plan ? 'Enterprise' : 'Enterprise' }</p>
+         <p>${pricing !== null ? 'contact us' : 'free of cost'}</p>
+         <p>${pricing !== null ? 'Enterprise' : 'Enterprise' }</p>
        </div>
       
    </div>
@@ -120,9 +120,9 @@ const displayModal = (element) => {
        <div class="ml-5">
            <h1 class="text-2xl  font-bold">Integration</h1>
            <ul class=" py-3">
-               <li>${integrations[0] ? integrations[0] : 'no data found'}</li>
-               <li>${integrations[1] ? integrations[1] : 'no data found'}</li>
-               <li>${integrations[2] ? integrations[2] : 'no data found'}</li>
+               <li>${integrations !== null ? integrations[0] : 'no data found'}</li>
+               <li>${integrations !== null ? integrations[1] : 'no data found'}</li>
+               <li>${integrations !== null ? integrations[2] : 'no data found'}</li>
            </ul>
        </div>
    </div>
@@ -130,21 +130,25 @@ const displayModal = (element) => {
 <div class=" relative w-full lg:w-1/2 border flex flex-col justify-center text-center rounded-md px-5 py-5 lg:px-12 lg:py-12 ">
    <img class="h-80" src="${image_link[0]}" alt="">
    <div id = "accuracy-btn"   class="absolute   right-12 top-12">
-                <button class="btn bg-red-500 rounded-full px-5 py-3">${accuracy.score == accuracy.score ? accuracy.score*100 : accuracy()} % accuracy</button>
+         <button class="btn bg-red-500 rounded-full px-5 py-3">${accuracy.score !== null ? converter(accuracy.score) : "null" } % accuracy</button>
     </div>
-   <h1 class="text-2xl  font-bold py-5" >${input_output_examples[0].input ? input_output_examples[0].input : 'question not found'}</h1>
-   <p>${input_output_examples[0].output ? input_output_examples[0].output : 'No! Not Yet! Take a break!!!'}</p>
+   <h1 class="text-2xl  font-bold py-5" >${input_output_examples !== null ? input_output_examples[0].input : 'question not found'}</h1>
+   <p>${input_output_examples !== null ? input_output_examples[0].output : 'No! Not Yet! Take a break!!!'}</p>
 </div>
    `;
    
     
 };
 
+const converter = (data) => {
+     
+    return data*100
+}
+
 // this function will do display none to accuracy button
-const accuracy = () => {
-     document.getElementById('accuracy-btn').classList.add('hidden')
-    
-   }
+const buttonHide = () => {
+    return document.getElementById('accuracy-btn').classList.add('hidden')
+}
 
 // by this fucntion we can arrange all data by its date 
 
@@ -179,7 +183,6 @@ const generateLi= li =>{
    
     return ratingHTML
 };
-
 
 
 
